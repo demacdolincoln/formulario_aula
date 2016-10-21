@@ -1,0 +1,15 @@
+{% macro format_radio(field) %}
+
+
+	<tr><td>{{ field.label }}</td>
+	
+	{% for subfield in field %}
+		{% if field.errors %}
+		<td class="bg-danger">{{ subfield.label }}{{ subfield(class="radio") }}</td>
+		{% else %}
+		<td>{{ subfield.label }}{{ subfield(class="radio") }}</td>
+		{% endif %}
+	{% endfor %}
+	
+	</tr>
+{% endmacro %}

@@ -1,0 +1,32 @@
+{% from "_radio_helper.html" import format_radio %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>formulario</title>
+		<link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" media="screen"charset="utf-8">
+	
+		<link rel="stylesheet" href="/static/css/my.css" type="text/css" media="screen"charset="utf-8">
+	</head>
+	<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h1>Formulário teste</h1>
+		</div>
+		<div class="panel-body">
+				<p>marque <b>0</b> para o que não gosta e <b>5</b> para o que gosta</p>
+				<form action="/" method="POST" accept-charset="utf-8">
+						{{ form.csrf_token }}
+					<table class="table table-striped table-hover">
+						{{ format_radio(form.p1) }}
+						{{ format_radio(form.p2) }}
+						{{ format_radio(form.p3) }}
+						{{ format_radio(form.p4) }}
+						{{ format_radio(form.p5) }}
+					</table>	
+                    {{ form.nome(class="input form-control", placeholder="Digite o seu nome") }}	
+                    {{ form.submit(class_="btn btn-primary") }}
+				</form>
+		</div>	
+	</div>
+	</body>
+</html>
